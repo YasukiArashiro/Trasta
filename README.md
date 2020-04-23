@@ -28,3 +28,6 @@ TCGをプレイしたいユーザーが、対戦相手がいない時でもプ�
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/13nyKVrccNY9i25tcNROCC66al-aZKFfD4ElryVmGoKU/edit?usp=sharing
+
+### ワイヤーフレーム図
+https://drive.google.com/file/d/1ClWVic1AEU3j9uUhezZy_BfCeG84JIj6/view?usp=sharing
