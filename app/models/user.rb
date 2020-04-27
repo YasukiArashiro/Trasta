@@ -7,5 +7,5 @@ class User < ApplicationRecord
   has_many :requests, dependent: :destroy
   has_many :evaluations
   has_many :tcg_tags
-  belongs_to :match_style
+  belongs_to :match_style, optional: true
 end
