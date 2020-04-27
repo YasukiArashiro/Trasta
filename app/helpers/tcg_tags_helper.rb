@@ -1,0 +1,2 @@
+module TcgTagsHelper
+end
