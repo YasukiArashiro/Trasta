@@ -1,0 +1,6 @@
+<h1>topページです</h1>
+
+<% if user_signed_in? %>
+<%= link_to 'ユーザーshow', user_path(current_user) %>
+<li><%= link_to ' logout', destroy_user_session_path, method: :delete,class: 'glyphicon glyphicon-log-out logout' %></li>
+<% end %>
