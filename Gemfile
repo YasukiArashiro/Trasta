@@ -67,3 +67,7 @@ gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
+gem 'rails_admin'
+
+gem 'cancancan'
+
