@@ -1,4 +1,4 @@
 class TcgTag < ApplicationRecord
-	belongs_to :user
-	belongs_to :request
+	has_many :users
+	has_many :requests
 end
