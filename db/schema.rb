@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_30_122829) do
+ActiveRecord::Schema.define(version: 2020_05_02_133607) do
 
   create_table "evaluations", force: :cascade do |t|
     t.integer "user_id"
@@ -45,6 +45,13 @@ ActiveRecord::Schema.define(version: 2020_04_30_122829) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tcg_genres", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "tcg_tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "tcg_tags", force: :cascade do |t|
     t.string "tcg_name"
     t.boolean "tcg_status"
@@ -62,7 +69,7 @@ ActiveRecord::Schema.define(version: 2020_04_30_122829) do
     t.string "first_name"
     t.string "last_name"
     t.integer "phone_number"
-    t.string "profile_image"
+    t.text "profile_image_id"
     t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

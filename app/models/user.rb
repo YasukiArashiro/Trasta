@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
   has_many :requests, dependent: :destroy
   has_many :evaluations
-  has_many :tcg_tags
+  has_many :tcg_genres, dependent: :destroy
+  has_many :tcg_tags, through: :tcg_genres
   belongs_to :match_style, optional: true
+
+  attachment :profile_image
 end

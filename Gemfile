@@ -71,3 +71,5 @@ gem 'rails_admin'
 
 gem 'cancancan'
 
+gem 'dotenv-rails'
+
