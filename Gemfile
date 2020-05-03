@@ -73,3 +73,6 @@ gem 'cancancan'
 
 gem 'dotenv-rails'
 
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails'
+
