@@ -1,0 +1,58 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      evaluation: 評価
+      match_style: 対戦スタイル
+      request: 対戦リクエスト
+      tcg_tag: TCGタグ
+      tcg_genre: TCGタグ紐付け
+    attributes:
+        user:
+          email: メールアドレス
+          password: パスワード
+          password_confirmation: 確認用パスワード
+          remember_me: 次回から自動的にログイン
+          nickname: ニックネーム
+          first_name: 名前（名）
+          last_name: 名前（姓）
+          phone_number: 電話番号
+          profile_image: プロフィール画像
+          introduction: 自己紹介文
+          created_at: 登録日
+          updated_at: 更新日
+          tcg_tag_id: TCGタグID
+          match_style_id: 対戦スタイルID
+          admin: 管理者権限
+        evaluation:
+          user_id: ユーザーID
+          evaluation: 評価
+          evaluation_comment: 評価コメント
+          evaluation_status: 評価ステータス
+          created_at: 登録日
+          updated_at: 更新日
+        match_style:
+          match_style: 対戦スタイル
+          match_style_status: 対戦スタイルステータス
+          created_at: 登録日
+          updated_at: 更新日
+        request:
+          user_id: ユーザーID
+          tcg_tag_id: TCGタグID
+          match_style_id: マッチスタイルID
+          opponent_user_id: 対戦相手ユーザーID
+          request_title: リクエストタイトル
+          match_day: 対戦日
+          meeting_time: 待ち合わせ時間
+          ending_time: 対戦終了時間
+          created_at: 登録日
+          updated_at: 更新日
+          prefectures: 都道府県
+          meeting_place: 詳細待ち合わせ場所
+          request_comment: 対戦リクエストコメント
+          request_status: 対戦リクエストステータス
+        tcg_tag:
+          tcg_name: TCG名
+          tcg_status: TCGステータス
+          created_at: 登録日
+          updated_at: 更新日

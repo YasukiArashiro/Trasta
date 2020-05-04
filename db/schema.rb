@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_02_133607) do
+ActiveRecord::Schema.define(version: 2020_05_04_030449) do
 
   create_table "evaluations", force: :cascade do |t|
     t.integer "user_id"
@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(version: 2020_05_02_133607) do
     t.date "match_day"
     t.time "meeting_time"
     t.time "ending_time"
-    t.string "prefectures"
+    t.integer "prefecture", default: 0
     t.string "meeting_place"
     t.text "request_comment"
-    t.string "request_status"
+    t.integer "request_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
