@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_04_030449) do
+ActiveRecord::Schema.define(version: 2020_05_05_073217) do
 
   create_table "evaluations", force: :cascade do |t|
     t.integer "user_id"
@@ -28,11 +28,18 @@ ActiveRecord::Schema.define(version: 2020_05_04_030449) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "pairs", force: :cascade do |t|
+    t.integer "request_id", null: false
+    t.integer "contributor_id", null: false
+    t.integer "opponent_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "requests", force: :cascade do |t|
     t.integer "user_id"
     t.integer "tcg_tag_id"
     t.integer "match_style_id"
-    t.integer "opponent_user_id"
     t.string "request_title"
     t.date "match_day"
     t.time "meeting_time"

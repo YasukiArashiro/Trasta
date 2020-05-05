@@ -17,8 +17,9 @@ Rails.application.routes.draw do
   end
 
   resources :requests do
+    get 'promise' ,on: :member
   	get 'schedule', on: :collection
-  	get 'promised_match', on: :collection
+  	get 'promised_match', on: :member
   	get 'map', on: :member
   end
 

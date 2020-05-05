@@ -76,3 +76,4 @@ gem 'dotenv-rails'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'jquery-rails'
 
+gem 'pry-byebug'

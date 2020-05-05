@@ -38,12 +38,28 @@ class RequestsController < ApplicationController
 	end
 
 	def destroy
+		@request = Request.find(params[:id])
+		@request.destroy
+		redirect_to user_path(current_user), notice: 'マッチリクエストを取り消しました！'
 	end
 
-	def schedule
+	def promise
+		@request = Request.find(params[:id])
+		@pair = Pair.new
+		@pair.request_id = @request.id
+		@pair.contributor_id = @request.user_id
+		@pair.opponent_id = current_user.id
+		@pair.save
+		#@request.update(opponent_user_id: current_user.id) #マッチリクエストの対戦相手のuser_idを保存
+    	@request.update(request_status: 1) #マッチリクエストのステータスを「成立済み」に変更
+		redirect_to promised_match_request_path(@request)
 	end
 
 	def promised_match
+		@request = Request.find(params[:id])
+	end
+
+	def schedule
 	end
 
 	def map

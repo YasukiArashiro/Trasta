@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<p id="notice" style="color: green;"><%= notice %></p> <!-- requestのサクセスメッセージ -->
+		<h1>成立済みマッチリクエスト</h1>
 		<div class="request_title">
 			<h1><%= @request.request_title %></h1>
 		</div>
@@ -36,18 +36,6 @@
 			<p>コメント</p> <p><%= @request.request_comment %></p>
 		</div>
 
-		<div class="switch">
-			<% if user_signed_in? %>
-				<% if @request.user_id == current_user.id %>
-					<%= link_to 'マッチリクエストを編集する', edit_request_path(@request) %>
-					<div class="btn btn-danger">
-						<%= link_to 'マッチリクエストを取り消す', request_path(@request), method: :delete, "data-confirm" => "本当に取り消しますか？" %>
-					</div>
-				<% else %>
-					<%= link_to '対戦を約束する', promise_request_path(@request.id) %>
-				<% end %>
-			<% end %>
-		</div>
 		<div class="back">
 			<%= link_to 'マッチリクエスト一覧に戻る', requests_path %>
 		</div>

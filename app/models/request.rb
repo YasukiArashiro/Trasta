@@ -2,6 +2,7 @@ class Request < ApplicationRecord
 	belongs_to :user
 	belongs_to :tcg_tag
 	belongs_to :match_style
+	has_many :pairs
 
 	enum prefecture: {
 	    "--未選択--":0,北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,茨城県:8,栃木県:9,群馬県:10,
