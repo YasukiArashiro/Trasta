@@ -50,7 +50,7 @@ class RequestsController < ApplicationController
 		@pair.contributor_id = @request.user_id
 		@pair.opponent_id = current_user.id
 		@pair.save
-    	@request.update(request_status: 1) #マッチリクエストのステータスを「成立済み」に変更
+		@request.update(request_status: 1) #マッチリクエストのステータスを「成立済み」に変更
 		redirect_to promised_match_request_path(@request)
 	end
 
