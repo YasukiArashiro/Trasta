@@ -13,9 +13,11 @@
 
 				<li><%= link_to "マイページ", user_path(current_user.id) %></li>
 
-				<li><%= link_to "リクエスト一覧" %></li>
+				<li><%= link_to "対戦相手を募集する！", new_request_path %></li>
 
-				<li><%= link_to "カート" %></li>
+				<li><%= link_to "マッチリクエストを探す！", requests_path %></li>
+
+				<li><%= link_to "対戦予定一覧", schedule_requests_path %></li>
 
 				<li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
 
@@ -23,7 +25,7 @@
 
 				<p class="navbar-text" style="font-size: 20px; font-family: Hannari;">ようこそ  ゲスト  さん。</p>
 
-				<li><%= link_to "商品一覧" %></li>
+				<li><%= link_to "アバウト" %></li>
 
 				<li><%= link_to "新規登録" , new_user_registration_path %></li>
 

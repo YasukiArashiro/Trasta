@@ -4,6 +4,7 @@ class RequestsController < ApplicationController
 	before_action :ensure_correct_user, only:[:edit]
 
 	def index
+		@requests = Request.all
 	end
 
 	def show
@@ -50,15 +51,18 @@ class RequestsController < ApplicationController
 		@pair.contributor_id = @request.user_id
 		@pair.opponent_id = current_user.id
 		@pair.save
+		@request.update(opponent_user_id: current_user.id)
 		@request.update(request_status: 1) #マッチリクエストのステータスを「成立済み」に変更
 		redirect_to promised_match_request_path(@request)
 	end
 
-	def promised_match
-		@request = Request.find(params[:id])
+	def schedule
+		@requests = Request.where(user_id: current_user.id).or(Request.where(opponent_user_id: current_user.id)).where(request_status: 1)
+		#「リクエストの投稿者のIDか対戦相手のIDがログインしているユーザー」かつ「リクエストステータスが成立済み」
 	end
 
-	def schedule
+	def promised_match
+		@request = Request.find(params[:id])
 	end
 
 	def map

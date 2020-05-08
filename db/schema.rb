@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_05_073217) do
+ActiveRecord::Schema.define(version: 2020_05_08_135100) do
 
   create_table "evaluations", force: :cascade do |t|
     t.integer "user_id"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_05_05_073217) do
     t.integer "request_status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "opponent_user_id"
   end
 
   create_table "tcg_genres", force: :cascade do |t|
