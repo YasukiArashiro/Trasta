@@ -17,10 +17,13 @@ Rails.application.routes.draw do
   end
 
   resources :requests do
+    resources :evaluations, only: [:new, :create]
     get 'promise' ,on: :member
   	get 'schedule', on: :collection
   	get 'promised_match', on: :member
   	get 'map', on: :member
   end
+
+
 
 end

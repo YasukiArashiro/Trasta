@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_08_135100) do
+ActiveRecord::Schema.define(version: 2020_05_09_142623) do
 
   create_table "evaluations", force: :cascade do |t|
     t.integer "user_id"
-    t.string "evaluation"
+    t.integer "evaluation"
     t.text "evaluation_comment"
-    t.boolean "evaluation_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "request_id"
+    t.integer "evaluation_partner"
   end
 
   create_table "match_styles", force: :cascade do |t|
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(version: 2020_05_08_135100) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "opponent_user_id"
+    t.integer "rater", default: 0
   end
 
   create_table "tcg_genres", force: :cascade do |t|

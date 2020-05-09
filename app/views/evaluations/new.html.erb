@@ -1,0 +1,36 @@
+<h1>ここが評価画面です</h1>
+
+<div class="container">
+	<div class="row">
+		<div class="opponent">
+			<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format:'jpeg', fallback: "no_image.jpg", size:'100x100' %>
+			<%= @user.nickname %>
+		</div>
+		<% if @request.rater != current_user.id %>
+			<div class="form">
+				<%= form_for [@request, @evaluation] do |f| %>
+					<div class="evaluation">
+						<%= f.radio_button :evaluation, :良い %>
+		  				<%= f.label :evaluation, "良い", {value: :良い, style: "display: inline-block;"} %>
+		  				<%= f.radio_button :evaluation, :普通 %>
+		  				<%= f.label :evaluation, "普通", {value: :普通, style: "display: inline-block;"} %>
+		  				<%= f.radio_button :evaluation, :悪い %>
+		  				<%= f.label :evaluation, "悪い", {value: :悪い, style: "display: inline-block;"} %>
+	  				</div>
+	  				<div class="evaluation_comment">
+						<label for="evaluation_comment">評価のコメント</label>
+						<br>
+						<%= f.text_area :evaluation_comment %>
+					</div>
+					<div class="submit">
+						<%= f.submit "評価をを投稿する" %>
+					</div>
+				<% end %>
+			</div>
+		<% else %>
+			<div class="message">
+				<h2>すでに評価済みです。対戦相手の方の評価が終了するまでお待ちください。</h2>
+			</div>
+		<% end %>
+	</div>
+</div>

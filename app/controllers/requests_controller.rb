@@ -4,11 +4,11 @@ class RequestsController < ApplicationController
 	before_action :ensure_correct_user, only:[:edit]
 
 	def index
-		@requests = Request.all
+		@requests = Request.where(request_status: 0)
 	end
 
 	def show
-		@request = Request.find(params[:id])
+		not_established?
 	end
 
 	def new
@@ -26,7 +26,7 @@ class RequestsController < ApplicationController
 	end
 
 	def edit
-		@request = Request.find(params[:id])
+		not_established?
 	end
 
 	def update
@@ -58,11 +58,19 @@ class RequestsController < ApplicationController
 
 	def schedule
 		@requests = Request.where(user_id: current_user.id).or(Request.where(opponent_user_id: current_user.id)).where(request_status: 1)
-		#「リクエストの投稿者のIDか対戦相手のIDがログインしているユーザー」かつ「リクエストステータスが成立済み」
+		#「リクエストの投稿者のIDか対戦相手のIDがカレントユーザー」かつ「リクエストステータスが成立済み」
 	end
 
 	def promised_match
 		@request = Request.find(params[:id])
+		unless @request.request_status == "成立済み"
+			redirect_to requests_path
+		end
+		if @request.user_id == current_user.id
+			@user = User.find(@request.opponent_user_id)
+		else
+			@user = User.find(@request.user_id)
+		end
 	end
 
 	def map
@@ -89,6 +97,13 @@ class RequestsController < ApplicationController
 			end
 		else
 			redirect_to new_user_session_path
+		end
+	end
+
+	def not_established?
+		@request = Request.find(params[:id])
+		unless @request.request_status == "未成立"
+			redirect_to requests_path
 		end
 	end
 end
