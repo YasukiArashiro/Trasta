@@ -1,6 +1,23 @@
 <h1>topページです</h1>
 
-<% if user_signed_in? %>
-<%= link_to 'ユーザーshow', user_path(current_user) %>
-<li><%= link_to ' logout', destroy_user_session_path, method: :delete,class: 'glyphicon glyphicon-log-out logout' %></li>
-<% end %>
+<div class="container">
+	<div class="row">
+		<h1>新着マッチリクエスト</h1>
+		<% @requests.each do |request| %>
+			<div class="btn">
+				<%= link_to request_path(request) do %>
+					<%= request.request_title %>
+					<%= request.tcg_tag.tcg_name %>
+					<%= request.match_day %>
+					<%= request.match_style.match_style %>
+					<%= request.prefecture %>
+					<p><%= request.meeting_time.strftime('%H:%M') %>〜</p>
+					<p>〜<%= request.ending_time.strftime('%H:%M') %></p>
+					<%= attachment_image_tag request.user, :profile_image, :fill, 100, 100, format:'jpeg', fallback: "no_image.jpg", size:'50x50' %>
+					<%= request.user.nickname %>
+					<%= request.meeting_place %>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+</div>
