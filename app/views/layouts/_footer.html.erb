@@ -1,12 +1,21 @@
-<nav class="navbar navbar-default" style="background-color: #EEE8AA; margin-bottom: 0px;">
-	<div class="container-field">
-		<div class="navbar-header">
-			<p class="navbar-brand"></p>
-		</div>
-		<div id="navbarEexample7">
-			<a class="navbar-logo" href="/" style="background-color: #EEE8AA;">
-				<h2>トレ☆スタ</h2>
-			</a>
+<nav class="nav-footer">
+	<div class="container-fluid">
+		<div class="collapse navbar-collapse" id="NavbarContent">
+			<ul class="nav navbar-nav navbar-right">
+				<% if user_signed_in? %>
+
+				<li class="btn">
+					<%= link_to "お問い合わせ", root_path, {class: "btn-text"} %>
+				</li>
+
+				<% else %>
+
+				<li class="btn">
+					<%= link_to "お問い合わせ", root_path, {class: "btn-text"} %>
+				</li>
+
+				<% end %>
+			</ul>
 		</div>
 	</div>
 </nav>
