@@ -1,35 +1,50 @@
-<nav class="navbar navbar-default" style="background-color: #EEE8AA; margin-bottom: 0px;">
-	<div class="container-field">
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid">
 		<div class="navbar-header">
-			<p class="navbar-brand"></p>
-		</div>
-		<div id="navbarEexample7">
-			<a class="navbar-logo" href="/" style="background-color: #EEE8AA;">
-				<h2>トレ☆スタ</h2>
+			<a class="navbar-brand" href="/">
+				☆トレスタ
 			</a>
-			<ul class="nav navbar-nav navbar-right" style="padding-right: 20px;">
+		</div>
+		<div class="collapse navbar-collapse" id="NavbarContent">
+			<ul class="nav navbar-nav navbar-right">
 				<% if user_signed_in? %>
-				<p class="navbar-text" style="font-size: 20px; font-family: Hannari;">ようこそ  <%= current_user.nickname %>  さん。</p>
+				<p class="navbar-text">ようこそ  <%= current_user.nickname %>  さん。</p>
 
-				<li><%= link_to "マイページ", user_path(current_user.id) %></li>
+				<li class="btn">
+					<%= link_to "マイページ", user_path(current_user.id), {class: "btn-text"} %>
+				</li>
 
-				<li><%= link_to "対戦相手を募集する！", new_request_path %></li>
+				<li class="btn">
+					<%= link_to "対戦相手を募集する！", new_request_path, {class: "btn-text"} %>
+				</li>
 
-				<li><%= link_to "マッチリクエストを探す！", requests_path %></li>
+				<li class="btn">
+					<%= link_to "マッチリクエストを探す！", requests_path, {class: "btn-text"} %>
+				</li>
 
-				<li><%= link_to "対戦予定一覧", schedule_requests_path %></li>
+				<li class="btn">
+					<%= link_to "対戦予定一覧", schedule_requests_path, {class: "btn-text"} %>
+				</li>
 
-				<li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+				<li class="btn">
+					<%= link_to "ログアウト", destroy_user_session_path, {class: "btn-text", method: :delete} %>
+				</li>
 
 				<% else %>
 
-				<p class="navbar-text" style="font-size: 20px; font-family: Hannari;">ようこそ  ゲスト  さん。</p>
+				<p class="navbar-text">ようこそ  ゲスト  さん。</p>
 
-				<li><%= link_to "アバウト" %></li>
+				<li class="btn">
+					<%= link_to "トレ☆スタとは？", home_about_path, {class: "btn-text"} %>
+				</li>
 
-				<li><%= link_to "新規登録" , new_user_registration_path %></li>
+				<li class="btn">
+					<%= link_to "新規登録" , new_user_registration_path, {class: "btn-text"} %>
+				</li>
 
-				<li><%= link_to "ログイン", user_session_path %></li>
+				<li class="btn">
+					<%= link_to "ログイン", user_session_path, {class: "btn-text"} %>
+				</li>
 
 				<% end %>
 			</ul>

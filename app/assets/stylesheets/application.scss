@@ -23,6 +23,39 @@ body,
   min-height: 100vh;
 }
 
+body {
+	font-family: 'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN','ヒラギノ角ゴシック','Hiragino Sans',YuGothic,'Yu Gothic',sans-serif;
+	padding-top: 80px;
+}
+
+.navbar-default{
+	background-color: #ff0a0a;
+}
+
+.container-fluid {
+	color: white;
+		.navbar-brand {
+			font-size: 40px; color: white; margin-top: 5px;
+		}
+		.navbar-brand:hover {
+			font-size: 40px; color: white; margin-top: 5px;
+		}
+}
+
+.navbar-collapse {
+	.navbar-text {
+		font-size: 20px; color: white;
+	}
+	.btn{
+		background-color: #ffffff; margin: 5px; padding: 0px;
+	}
+	.nav {
+		.btn-text {
+			color: black; font-size: 15px;
+		}
+	}
+}
+
 footer {
   margin-top: auto;
 }
