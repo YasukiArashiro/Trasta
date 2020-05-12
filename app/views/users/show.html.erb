@@ -14,6 +14,20 @@
 		<p><%= link_to 'プロフィールを編集する', edit_user_path %></p>
 
 		<h3>評価一覧</h3>
+		<p>評価：<%= Evaluation.where(evaluation_partner: @user.id).count %>
+		   良い：<%= Evaluation.where(evaluation_partner: @user.id, evaluation: 0).count %>
+		   普通：<%= Evaluation.where(evaluation_partner: @user.id, evaluation: 1).count %>
+		   悪い：<%= Evaluation.where(evaluation_partner: @user.id, evaluation: 2).count %>
+		</p>
+
+		<% @evaluations.each do |evaluation| %>
+			<div class="btn">
+					<%= attachment_image_tag evaluation.user, :profile_image, :fill, 100, 100, format:'jpeg', fallback: "no_image.jpg", size:'50x50' %>
+					<%= evaluation.user.nickname %>
+					<%= evaluation.evaluation %><br>
+					<%= evaluation.evaluation_comment %>
+			</div>
+		<% end %>
 
 	</div>
 </div>

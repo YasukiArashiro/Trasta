@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@evaluations = Evaluation.where(evaluation_partner: @user.id)
 	end
 
 	def edit
@@ -44,6 +45,10 @@ class UsersController < ApplicationController
 		else
 			redirect_to new_user_session_path
 		end
+	end
+
+	def user_count
+		User.count
 	end
 
 end
