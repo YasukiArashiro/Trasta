@@ -76,6 +76,15 @@ class RequestsController < ApplicationController
 	def map
 	end
 
+	def search
+		@requests = Request.where(request_status: 0)
+		@requests = @requests.where(tcg_tag_id: params[:tcg_tag_id])
+		.or(@requests.where(prefecture: params[:prefecture]))
+		.or(@requests.where(match_day: params[:match_day]))
+		.or(@requests.where(match_style_id: params[:match_style_id]))
+		render action: :index
+	 end
+
 	private
 
 	def request_params
@@ -106,4 +115,5 @@ class RequestsController < ApplicationController
 			redirect_to requests_path
 		end
 	end
+
 end

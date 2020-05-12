@@ -30,7 +30,7 @@
 			</div>
 			<div class="prefecture">
 				<label for="prefecture">待ち合わせ場所 <span class="label label-danger">必須</span></label>
-				<%= f.select :prefecture, Request.prefectures.keys, {prompt: '選択してください'}, class: 'btn btn-info' %>
+				<%= f.select :prefecture, Request.prefectures.keys, {prompt: '選択してください'} %>
 			</div>
 			<div class="meeting_place">
 				<label for="meeting_place">詳細な待ち合わせ場所 <span class="label label-danger">必須</span></label>

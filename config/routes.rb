@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   	get 'schedule', on: :collection
   	get 'promised_match', on: :member
   	get 'map', on: :member
+    get 'search', on: :collection
   end
 
 

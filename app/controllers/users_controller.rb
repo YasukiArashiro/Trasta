@@ -47,8 +47,4 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def user_count
-		User.count
-	end
-
 end
