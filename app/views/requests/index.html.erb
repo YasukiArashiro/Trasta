@@ -1,13 +1,15 @@
 <div class="container container-index">
 	<h1 class= index-title>マッチリクエストを探す！</h1>
 	<br>
-	<%= form_tag search_requests_path, method: :get do %>
-	<%= select_tag :tcg_tag_id,options_from_collection_for_select(TcgTag.all, "id", "tcg_name"),include_blank: "TCG名" %>
-	<%= select_tag :prefecture, options_for_select(Request.prefectures.keys) %>
-	<%= date_field_tag :match_day %>
-	<%= select_tag :match_style_id,options_from_collection_for_select(MatchStyle.all, "id", "match_style"),include_blank: "プレイスタイル" %>
-	<%= submit_tag "絞り込む", name: nil %>
-	<% end %>
+	<div class="search text-center">
+		<%= form_tag search_requests_path, method: :get do %>
+			<%= select_tag :tcg_tag_id,options_from_collection_for_select(TcgTag.all, "id", "tcg_name"),include_blank: "TCG名" %>
+			<%= select_tag :prefecture, options_for_select(Request.prefectures.keys) %>
+			<%= date_field_tag :match_day %>
+			<%= select_tag :match_style_id,options_from_collection_for_select(MatchStyle.all, "id", "match_style"),include_blank: "プレイスタイル" %>
+			<%= submit_tag "絞り込む", name: nil %>
+		<% end %>
+	</div>
 
 	<div class="row row-index w-auto">
 		<% @requests.each do |request| %>
