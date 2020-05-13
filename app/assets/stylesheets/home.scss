@@ -53,3 +53,20 @@
 		margin-bottom: 40px;
 	}
 }
+
+.container-about {
+	.index-title {
+		color: black;
+	}
+	background-color: #ff9999;
+	.row-about {
+		color: black;
+		background-color: #ccffcc;
+		margin-top: 30px;
+	}
+	.row-margin {
+		background-image: url("about.jpg");
+		background-size: cover;
+		height: 300px;
+	}
+}
