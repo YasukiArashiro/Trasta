@@ -1,3 +1,43 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container-user {
+	h1 {
+		color: black;
+		line-height: 180%;
+	}
+	background-color: #ff9999;
+	.row-user {
+		background-color: #ccffcc;
+		.profile1 {
+			font-size: 30px;
+		}
+		.profile2 {
+			font-size: 20px;
+			margin-top: 20px;
+		}
+		.profile3 {
+			font-size: 20px;
+			margin-top: 30px;
+			margin-bottom: 50px;
+		}
+		.no_tcg {
+			font-size: 15px;
+			margin-top: 30px;
+		}
+		.user-edit {
+			margin: 50px;
+		}
+		.evaluation {
+			font-size: 30px;
+			background-color: #ff99cc;
+		}
+		.evaluation-index {
+			font-size: 25px;
+			background-color: #ff99cc;
+			text-align: center;
+			margin-bottom: 10px;
+		}
+	}
+}

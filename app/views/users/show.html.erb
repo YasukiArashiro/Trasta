@@ -1,31 +1,46 @@
-
-<div class="container">
-	<div class="row">
-		<p id="notice" style="color: green;"><%= notice %></p> <!-- userのサクセスメッセージ -->
+<div class="container container-user">
+	<h1>プロフィール</h1>
+	<p id="notice" style="color: green;"><%= notice %></p> <!-- userのサクセスメッセージ -->
+	<div class="row row-user text-center">
 		<p><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></p>
-		<p><%= @user.nickname %></p>
-		<p><%= @user.introduction %></p>
-		<p><%= @user.match_style.match_style %></p>
+		<p class="profile1"><%= @user.nickname %></p>
+		<p class="profile2"><%= @user.introduction %></p>
+		<p class="profile3">プレイスタイル：<%= @user.match_style.match_style %></p>
 		<h3>プレイしているTCG</h3>
-		<% @user.tcg_genres.each do |tcg| %>
-			<%= tcg.tcg_tag.tcg_name %>
+		<% if @user.tcg_genres.empty? %>
+			<p class="no_tcg">プレイしているTCGが未登録です</p>
+		<% else %>
+			<% @user.tcg_genres.each do |tcg| %>
+				<%= tcg.tcg_tag.tcg_name %>
+			<% end %>
 		<% end %>
 
-		<p><%= link_to 'プロフィールを編集する', edit_user_path %></p>
+		<p class="user-edit"><%= link_to 'プロフィールを編集する', edit_user_path, class:"btn btn-warning" %></p>
 
-		<h3>評価一覧</h3>
-		<p>評価：<%= Evaluation.where(evaluation_partner: @user.id).count %>
-		   良い：<%= Evaluation.where(evaluation_partner: @user.id, evaluation: 0).count %>
-		   普通：<%= Evaluation.where(evaluation_partner: @user.id, evaluation: 1).count %>
-		   悪い：<%= Evaluation.where(evaluation_partner: @user.id, evaluation: 2).count %>
-		</p>
+		<div class="evaluation-class">
+		<h2>評価一覧</h2>
+		<div class="evaluation col-xl-5">
+			<p>評価：<%= Evaluation.where(evaluation_partner: @user.id).count %>
+			   良い：<%= Evaluation.where(evaluation_partner: @user.id, evaluation: 0).count %>
+			   普通：<%= Evaluation.where(evaluation_partner: @user.id, evaluation: 1).count %>
+			   悪い：<%= Evaluation.where(evaluation_partner: @user.id, evaluation: 2).count %>
+			</p>
+		</div>
 
 		<% @evaluations.each do |evaluation| %>
-			<div class="btn">
-					<%= attachment_image_tag evaluation.user, :profile_image, :fill, 100, 100, format:'jpeg', fallback: "no_image.jpg", size:'50x50' %>
-					<%= evaluation.user.nickname %>
-					<%= evaluation.evaluation %><br>
-					<%= evaluation.evaluation_comment %>
+			<div class="evaluation-index row-md-6">
+					<div class="user-name">
+						<%= link_to user_path(evaluation.user) do %>
+							<%= attachment_image_tag evaluation.user, :profile_image, :fill, 100, 100, format:'jpeg', fallback: "no_image.jpg", size:'50x50' %>
+							<%= evaluation.user.nickname %>
+						<% end %>
+					</div>
+					<div class="evaluation-detail">
+						<%= evaluation.evaluation %>
+					</div>
+					<div class="evaluation-comment">
+						<%= evaluation.evaluation_comment %>
+					</div>
 			</div>
 		<% end %>
 
