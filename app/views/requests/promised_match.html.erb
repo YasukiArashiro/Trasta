@@ -1,42 +1,49 @@
-<h1>対戦約束済みのマッチリクエスト詳細</h1>
-<div class="container">
-	<div class="row">
-		<div class="request_title">
+<div class="container container-show">
+	<div class="row row-show">
+		<div class="request_title text-center">
 			<h1><%= @request.request_title %></h1>
 		</div>
-		<div class="opponent">
+		<div class="opponent text-center">
 			<p>対戦相手</p>
-			<%= link_to user_path(@user) do %>
-				<%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format:'jpeg', fallback: "no_image.jpg", size:'100x100' %>
-				<%= @user.nickname %>
+			<%= link_to user_path(@request.user) do %>
+				<%= attachment_image_tag @request.user, :profile_image, :fill, 100, 100, format:'jpeg', fallback: "no_image.jpg", size:'100x100' %>
+				<%= @request.user.nickname %>
 			<% end %>
 		</div>
-		<div class="tcg_name">
-			<p>TCG名</p> <p><%= @request.tcg_tag.tcg_name %></p>
+			<table class="table_show text-center" align="center">
+		    <tr>
+			  <th>TCG名</th>
+	    	  <th>　<%= @request.tcg_tag.tcg_name %></th>
+			</tr>
+			<tr>
+			  <th>対戦日</th>
+	    	  <th>　<%= @request.match_day %></th>
+			</tr>
+			<tr>
+			  <th>待ち合わせ時刻</th>
+	    	  <th>　<%= @request.meeting_time.strftime('%H:%M') %></th>
+			</tr>
+			<tr>
+			  <th>対戦終了時間</th>
+	    	  <th>　<%= @request.ending_time.strftime('%H:%M') %></th>
+			</tr>
+			<tr>
+			  <th>対戦スタイル</th>
+	    	  <th>　<%= @request.match_style.match_style %></th>
+		    </tr>
+	    </table>
+		<div class="prefecture match_show">
+			<p>待ち合わせ場所</p>
 		</div>
-		<div class="match_day">
-			<p>対戦日</p> <p><%= @request.match_day %></p>
+		<div class="meeting_place match_show">
+			<p><%= @request.prefecture %>　<%= @request.meeting_place %></p>
 		</div>
-		<div class="meeting_time">
-			<p>待ち合わせ時刻</p> <p><%= @request.meeting_time.strftime('%H:%M') %></p>
-		</div>
-		<div class="ending_time">
-			<p>対戦終了時間</p> <p><%= @request.ending_time.strftime('%H:%M') %></p>
-		</div>
-		<div class="match_style">
-			<p>対戦スタイル</p> <p><%= @request.match_style.match_style %></p>
-		</div>
-		<div class="prefecture">
-			<p>待ち合わせ場所</p> <p><%= @request.prefecture %></p>
-		</div>
-		<div class="meeting_place">
-			<p><%= @request.meeting_place %></p>
-		</div>
-		<div class="tcg_name">
+		<div class="tcg_name match_show">
 			<p>コメント</p> <p><%= @request.request_comment %></p>
 		</div>
-
-		<%= link_to '対戦を終了する', new_request_evaluation_path(@request) %>
+		<div class="finish text-center">
+			<%= link_to '対戦を終了する', new_request_evaluation_path(@request), "data-confirm" => "本当に対戦終了しますか？", class:"back_btn btn btn-danger" %>
+		</div>
 
 	</div>
 </div>
