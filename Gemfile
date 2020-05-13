@@ -82,6 +82,8 @@ gem 'jquery-rails'
 
 gem 'pry-byebug'
 
+gem 'kaminari'
+
 group :production do
   gem 'mysql2'
 end

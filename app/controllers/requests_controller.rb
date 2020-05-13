@@ -4,7 +4,8 @@ class RequestsController < ApplicationController
 	before_action :ensure_correct_user, only:[:edit]
 
 	def index
-		@requests = Request.where(request_status: 0)
+		@requests = Request.where(request_status: 0).reverse_order.page(params[:page]).per(10)
+
 	end
 
 	def show
@@ -71,9 +72,6 @@ class RequestsController < ApplicationController
 		else
 			@user = User.find(@request.user_id)
 		end
-	end
-
-	def map
 	end
 
 	def search
