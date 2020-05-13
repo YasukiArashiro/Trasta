@@ -58,7 +58,8 @@ class RequestsController < ApplicationController
 	end
 
 	def schedule
-		@requests = Request.where(user_id: current_user.id).or(Request.where(opponent_user_id: current_user.id)).where(request_status: 1)
+		@requests = Request.where(user_id: current_user.id).or(Request.where(opponent_user_id: current_user.id))
+		.where(request_status: 1).reverse_order.page(params[:page]).per(10)
 		#「リクエストの投稿者のIDか対戦相手のIDがカレントユーザー」かつ「リクエストステータスが成立済み」
 	end
 
@@ -80,6 +81,7 @@ class RequestsController < ApplicationController
 		.or(@requests.where(prefecture: params[:prefecture]))
 		.or(@requests.where(match_day: params[:match_day]))
 		.or(@requests.where(match_style_id: params[:match_style_id]))
+		.reverse_order.page(params[:page]).per(10)
 		render action: :index
 	 end
 
