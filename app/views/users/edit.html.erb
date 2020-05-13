@@ -1,27 +1,26 @@
-
-<div class="container">
-	<div calss="row">
-		<h1>ここがプロフ編集画面です</h1>
-
+<div class="container container-edit">
+	<h1>プロフィールを編集する！</h1>
+	<div class="row row-edit text-center">
 		<%= form_for(@user) do |f| %>
-				<div class="image">
-					<p><strong>プロフィール画像 </strong></p>
-					<%= f.attachment_field :profile_image, class: "user-edit-form" %>
+				<div class="image form-group">
+					<p><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:'150x150') %></p>
 				</div>
-				<div class="name">
-					<p><strong>ニックネーム </strong><%= f.text_field :nickname, class:"", id:"inputEmail", placeholder:"名前"%></p>
+				<p><%= f.attachment_field :profile_image, class: "user-edit-form" %></p>
+				<div class="name form-group">
+					<p><strong>ニックネーム </strong><%= f.text_field :nickname, class: "form-control text-center", id:"inputEmail", placeholder:"名前"%></p>
 				</div>
-				<div class="Introduction">
-					<p><strong>自己紹介文 </strong><%= f.text_area :introduction %></p>
+				<div class="Introduction form-group">
+					<p><strong>自己紹介文 </strong><%= f.text_area :introduction, class: "form-control text-center" %></p>
 				</div>
-				<div class="match_style">
-					<p><strong>対戦スタイル </strong><%= f.collection_select :match_style_id, MatchStyle.all, :id, :match_style, include_blank: "選択して下さい" %></p>
+				<div class="match_style form-group">
+					<p><strong>対戦スタイル　 </strong><%= f.collection_select :match_style_id, MatchStyle.all, :id, :match_style, include_blank: "選択して下さい", class: "form-control" %></p>
 				</div>
 				<div class="submit">
-					<%= f.submit "プロフィールを更新する" %>
+					<%= f.submit "プロフィールを更新する", class:"btn btn-warning profile-update" %>
 				</div>
 		<% end %>
-
-		<%= link_to 'プロフィール画面に戻る', user_path %>
+	</div>
+	<div class="back text-center">
+		<%= link_to 'プロフィール画面に戻る', user_path, class: "btn btn-info back" %>
 	</div>
 </div>

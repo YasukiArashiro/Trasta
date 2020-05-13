@@ -2,7 +2,7 @@
 	<h1>プロフィール</h1>
 	<p id="notice" style="color: green;"><%= notice %></p> <!-- userのサクセスメッセージ -->
 	<div class="row row-user text-center">
-		<p><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></p>
+		<p><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:'150x150') %></p>
 		<p class="profile1"><%= @user.nickname %></p>
 		<p class="profile2"><%= @user.introduction %></p>
 		<p class="profile3">プレイスタイル：<%= @user.match_style.match_style %></p>

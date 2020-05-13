@@ -41,3 +41,25 @@
 		}
 	}
 }
+
+.container-edit {
+	h1 {
+		color: black;
+		line-height: 180%;
+	}
+	background-color: #ff9999;
+	.row-edit {
+		font-size: 15px;
+		background-color: #ccffcc;
+	}
+	.user-edit-form {
+		display: inline;
+		margin-left: 300px;
+	}
+	.profile-update {
+		margin: 50px;
+	}
+	.back {
+		margin: 10px;
+	}
+}
