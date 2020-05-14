@@ -6,7 +6,8 @@ ja:
       match_style: 対戦スタイル
       request: 対戦リクエスト
       tcg_tag: TCGタグ
-      tcg_genre: TCGタグ紐付け
+      tcg_genre: プレイしているTCG
+      pair: マッチングユーザー
     attributes:
         user:
           email: メールアドレス
@@ -24,11 +25,18 @@ ja:
           tcg_tag_id: TCGタグID
           match_style_id: 対戦スタイルID
           admin: 管理者権限
+          requests: マッチリクエスト
+          evaluations: 評価
+          tcg_genres: プレイしているTCG
+          match_style: 対戦スタイル
+          remember_created_at: remember meチェック日時
+          reset_password_sent_at: パスワードリセットメール送信日時
         evaluation:
-          user_id: ユーザーID
+          user: 評価を投稿したユーザー
           evaluation: 評価
           evaluation_comment: 評価コメント
-          evaluation_status: 評価ステータス
+          evaluation_partner: 評価した相手
+          request: マッチリクエストID
           created_at: 登録日
           updated_at: 更新日
         match_style:
@@ -36,23 +44,45 @@ ja:
           match_style_status: 対戦スタイルステータス
           created_at: 登録日
           updated_at: 更新日
+          users: この対戦スタイルのユーザー
+          requests: この対戦スタイルのリクエスト
         request:
-          user_id: ユーザーID
-          tcg_tag_id: TCGタグID
-          match_style_id: マッチスタイルID
-          opponent_user_id: 対戦相手ユーザーID
+          user: 投稿ユーザー
+          tcg_tag: 対戦するTCG
+          match_style: マッチスタイル
+          opponent_user_id: 対戦相手ユーザー
           request_title: リクエストタイトル
           match_day: 対戦日
           meeting_time: 待ち合わせ時間
           ending_time: 対戦終了時間
+          rater: 先に評価したユーザー
           created_at: 登録日
           updated_at: 更新日
-          prefectures: 都道府県
+          prefecture: 都道府県
           meeting_place: 詳細待ち合わせ場所
           request_comment: 対戦リクエストコメント
           request_status: 対戦リクエストステータス
+          evaluations: 評価
+          pairs: マッチングユーザー
         tcg_tag:
           tcg_name: TCG名
           tcg_status: TCGステータス
+          created_at: 登録日
+          updated_at: 更新日
+          tcg_genres: プレイしているTCG
+          users: タグ付されているユーザー
+          requests: タグ付されているリクエスト
+        pair:
+          request_id: 対戦リクエストID
+          contributor_id: リクエスト投稿者ID
+          opponent_id: 対戦相手ユーザーID
+          created_at: 登録日
+          updated_at: 更新日
+          request: マッチリクエスト
+          contributor: リクエスト投稿者
+          opponent: 対戦相手
+        tcg_genre:
+          user: ユーザー
+          tcg_tag: TCG名
           created_at: 登録日
           updated_at: 更新日
