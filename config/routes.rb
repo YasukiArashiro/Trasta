@@ -12,9 +12,9 @@ Rails.application.routes.draw do
     sessions: "users/sessions",
   }
 
-  resources :users, only: [:show, :edit, :update] do
-  	get 'withdrawal', on: :collection
-  end
+  resources :users, only: [:show, :edit, :update]
+
+  resources :tcg_genres, only: [:create, :destroy]
 
   resources :requests do
     resources :evaluations, only: [:new, :create]

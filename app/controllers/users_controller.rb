@@ -21,9 +21,6 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def withdrawal
-	end
-
 	private
 
 	def user_params

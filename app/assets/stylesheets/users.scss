@@ -22,6 +22,10 @@
 			margin-top: 30px;
 			margin-bottom: 50px;
 		}
+		.genre {
+			font-size: 20px;
+			margin-top: 40px;
+		}
 		.no_tcg {
 			font-size: 15px;
 			margin-top: 30px;
@@ -54,13 +58,25 @@
 	.row-edit {
 		font-size: 15px;
 		background-color: #ccffcc;
+		.image {
+			margin-top: 30px;
+		}
+		.genre-index {
+			font-size: 25px;
+			line-height: 200%;
+		}
+		.genre-add {
+			margin-top: 20px;
+			margin-bottom: 40px;
+		}
 	}
 	.user-edit-form {
 		display: inline;
 		margin-left: 300px;
 	}
 	.profile-update {
-		margin: 50px;
+		margin-top: 20px;
+		margin-bottom: 40px;
 	}
 	.back {
 		margin: 10px;
