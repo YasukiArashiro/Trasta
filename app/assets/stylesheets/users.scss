@@ -63,3 +63,37 @@
 		margin: 10px;
 	}
 }
+
+.container-login {
+	h1 {
+		color: black;
+		text-align: center;
+		line-height: 180%;
+	}
+	background-color: #ff9999;
+	margin-top: 80px;
+	.row-login {
+		.login-btn {
+			color: black;
+			font-size: 25px;
+			margin: 20px;
+		}
+	}
+}
+
+.container-signup {
+	h1 {
+		color: black;
+		text-align: center;
+		line-height: 180%;
+	}
+	background-color: #ccffcc;
+	.row-signup {
+		.signup-btn {
+			color: black;
+			font-size: 25px;
+			margin: 40px;
+		}
+	}
+}
+

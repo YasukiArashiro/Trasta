@@ -84,6 +84,8 @@ gem 'pry-byebug'
 
 gem 'kaminari'
 
+gem 'bootstrap_form'
+
 group :production do
   gem 'mysql2'
 end
