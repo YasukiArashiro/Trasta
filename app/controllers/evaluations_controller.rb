@@ -13,13 +13,16 @@ class EvaluationsController < ApplicationController
 		@evaluation.user_id = current_user.id
 		@evaluation.evaluation_partner = @user.id
 		@evaluation.request_id = @request.id
-		@evaluation.save
-		if @request.rater != 0
-			@request.update(request_status: 2) #マッチリクエストのステータスを「対戦終了」に変更
+		if @evaluation.save
+			if @request.rater != 0
+				@request.update(request_status: 2) #マッチリクエストのステータスを「対戦終了」に変更
+			else
+				@request.update(rater: current_user.id)
+			end
+			redirect_to home_thanks_path
 		else
-			@request.update(rater: current_user.id)
+			render action: :new
 		end
-		redirect_to home_thanks_path
 	end
 
 	private
