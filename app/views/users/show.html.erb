@@ -17,8 +17,10 @@
 			<% end %>
 		</div>
 
-		<% if current_user.id == @user.id  %>
-			<p class="user-edit"><%= link_to 'プロフィールを編集する', edit_user_path, class:"btn btn-warning" %></p>
+		<% if user_signed_in? %>
+			<% if current_user.id == @user.id  %>
+				<p class="user-edit"><%= link_to 'プロフィールを編集する', edit_user_path, class:"btn btn-warning" %></p>
+			<% end %>
 		<% end %>
 
 		<div class="evaluation-class">
