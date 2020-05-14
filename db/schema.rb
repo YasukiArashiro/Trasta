@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_14_133533) do
+ActiveRecord::Schema.define(version: 2020_05_14_134559) do
 
   create_table "evaluations", force: :cascade do |t|
     t.integer "user_id"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2020_05_14_133533) do
     t.string "last_name"
     t.string "phone_number"
     t.text "profile_image_id"
-    t.text "introduction", default: "よろしくお願いします！"
+    t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "tcg_tag_id"
