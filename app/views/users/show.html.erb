@@ -7,13 +7,15 @@
 		<p class="profile2"><%= @user.introduction %></p>
 		<p class="profile3">プレイスタイル：<%= @user.match_style.match_style %></p>
 		<h3>プレイしているTCG</h3>
-		<% if @user.tcg_genres.empty? %>
-			<p class="no_tcg">プレイしているTCGが未登録です</p>
-		<% else %>
-			<% @user.tcg_genres.each do |tcg| %>
-				<%= tcg.tcg_tag.tcg_name %>
+		<div class="genre">
+			<% if @user.tcg_genres.empty? %>
+				<p class="no_tcg">プレイしているTCGが未登録です</p>
+			<% else %>
+				<% @user.tcg_genres.each do |tcg| %>
+					<%= tcg.tcg_tag.tcg_name %>
+				<% end %>
 			<% end %>
-		<% end %>
+		</div>
 
 		<% if current_user.id == @user.id  %>
 			<p class="user-edit"><%= link_to 'プロフィールを編集する', edit_user_path, class:"btn btn-warning" %></p>

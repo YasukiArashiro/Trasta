@@ -16,11 +16,33 @@
 					<p><strong>対戦スタイル　 </strong><%= f.collection_select :match_style_id, MatchStyle.all, :id, :match_style, include_blank: "選択して下さい", class: "form-control" %></p>
 				</div>
 				<div class="submit">
-					<%= f.submit "プロフィールを更新する", class:"btn btn-warning profile-update" %>
+					<%= f.submit "プロフィールを更新する", class:"btn btn-success profile-update" %>
 				</div>
 		<% end %>
+		<div class="genre text-center">
+			<h2>プレイしているTCG</h2>
+			<% if @user.tcg_genres.empty? %>
+				<p class="no_tcg">プレイしているTCGが未登録です</p>
+			<% else %>
+				<table class="genre-index" align="center">
+					<% @user.tcg_genres.each do |tcg| %>
+						<tr>
+			  				<th><%= tcg.tcg_tag.tcg_name %></th>
+	    	  				<th>　<%= link_to '削除する', tcg_genre_path(tcg.tcg_tag_id), method: :delete, class: "btn btn-danger" %></th>
+						</tr>
+					<% end %>
+				</table>
+			<% end %>
+			<div class="genre-add">
+				<%= form_tag tcg_genres_path, method: :post do %>
+					<%= select_tag :tcg_tag_id,options_from_collection_for_select(TcgTag.all, "id", "tcg_name"),include_blank: "TCG名" %>
+					<%= submit_tag "追加する", name: nil, class: "btn btn-success" %>
+				<% end %>
+			</div>
+		</div>
 	</div>
+
 	<div class="back text-center">
-		<%= link_to 'プロフィール画面に戻る', user_path, class: "btn btn-info back" %>
+		<%= link_to 'プロフィール画面に戻る', user_path(@user), class: "btn btn-info back" %>
 	</div>
 </div>
