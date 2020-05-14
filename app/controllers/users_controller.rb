@@ -40,7 +40,7 @@ class UsersController < ApplicationController
 		if user_signed_in?
 			@user = User.find(params[:id])
 			if current_user.id != @user.id
-				redirect_to root
+				redirect_to root_path
 			end
 		else
 			redirect_to new_user_session_path
