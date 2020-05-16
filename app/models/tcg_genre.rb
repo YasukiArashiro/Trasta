@@ -2,5 +2,5 @@ class TcgGenre < ApplicationRecord
 	belongs_to :user, optional: true
 	belongs_to :tcg_tag, optional: true
 
-	validates :tcg_tag_id, presence: true
+	validates :tcg_tag_id, presence: true, uniqueness: { scope: :user_id }
 end
