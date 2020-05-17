@@ -37,3 +37,6 @@ https://drive.google.com/file/d/18NiQxVbTjAjGnbBxnArBCCv2jCLPWqLr/view?usp=shari
 
 ### ER図
 https://drive.google.com/file/d/1mvok3B7b3oMuvedzJmwaFVDwZziguc5D/view?usp=sharing
+
+### アプリケーション詳細設計
+https://drive.google.com/file/d/1EI6rdDpVL6Ga3Kbrp8m3iueAbuA9BswV/view?usp=sharing
