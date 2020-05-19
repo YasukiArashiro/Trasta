@@ -7,6 +7,7 @@
 			<%= select_tag :prefecture, options_for_select(Request.prefectures.keys) %>
 			<%= date_field_tag :match_day %>
 			<%= select_tag :match_style_id,options_from_collection_for_select(MatchStyle.all, "id", "match_style"),include_blank: "プレイスタイル" %>
+			<%= select_tag :search, options_for_select({AND検索: 'and', OR検索: 'or'}) %>
 			<%= submit_tag "絞り込む", name: nil %>
 		<% end %>
 	</div>

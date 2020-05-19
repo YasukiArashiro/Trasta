@@ -77,17 +77,24 @@ class RequestsController < ApplicationController
 
 	def search
 		@requests = Request.where(request_status: 0)
-		unless params[:tcg_tag_id] == nil
+		if params[:search] == 'and'
+			unless params[:tcg_tag_id] == nil
+				@requests = @requests.where(tcg_tag_id: params[:tcg_tag_id])
+			end
+			unless params[:prefecture] == "都道府県"
+				@requests = @requests.where(prefecture: params[:prefecture])
+			end
+			unless params[:match_day].blank?
+				@requests = @requests.where(match_day: params[:match_day])
+			end
+			unless params[:match_style_id].blank?
+				@requests = @requests.where(match_style_id: params[:match_style_id])
+			end
+		elsif params[:search] == 'or'
 			@requests = @requests.where(tcg_tag_id: params[:tcg_tag_id])
-		end
-		unless params[:prefecture] == "都道府県"
-			@requests = @requests.where(prefecture: params[:prefecture])
-		end
-		unless params[:match_day].blank?
-			@requests = @requests.where(match_day: params[:match_day])
-		end
-		unless params[:match_style_id].blank?
-			@requests = @requests.where(match_style_id: params[:match_style_id])
+			.or(@requests.where(prefecture: params[:prefecture]))
+			.or(@requests.where(match_day: params[:match_day]))
+			.or(@requests.where(match_style_id: params[:match_style_id]))
 		end
 		@requests = @requests.reverse_order.page(params[:page]).per(10)
 		render action: :index
