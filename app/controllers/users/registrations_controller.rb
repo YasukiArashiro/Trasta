@@ -12,6 +12,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
    def create
      super
+     # -----------------------追記----------------------
+     if @user.save
+      WelcomeMailer.welcome_mail(@user).deliver_later
+     end
+     # -----------------------追記----------------------
    end
 
   # GET /resource/edit

@@ -35,6 +35,23 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  # ----------------追記---------------------
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+    address: 'smtp.gmail.com',
+    domain: 'gmail.com',
+    port: 587,
+    user_name: ENV['MAILER_EMAIL'],
+    password:  ENV['MAILER_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
+  # ----------------追記---------------------
+
+  config.action_mailer.default_url_options = { host: "localhost:3000"}
+
+  config.action_mailer.default_url_options = { host: "localhost:3000"}
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
