@@ -9,7 +9,7 @@ class RequestsController < ApplicationController
 	end
 
 	def show
-		not_established?
+		not_established
 	end
 
 	def new
@@ -27,7 +27,7 @@ class RequestsController < ApplicationController
 	end
 
 	def edit
-		not_established?
+		not_established
 	end
 
 	def update
@@ -124,7 +124,7 @@ class RequestsController < ApplicationController
 		end
 	end
 
-	def not_established?
+	def not_established
 		@request = Request.find(params[:id])
 		unless @request.request_status == "未成立"
 			redirect_to requests_path

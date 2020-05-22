@@ -1,2 +1,0 @@
-class TcgTagsController < ApplicationController
-end
