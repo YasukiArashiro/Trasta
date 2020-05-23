@@ -26,10 +26,10 @@
 		<div class="evaluation-class">
 			<h2>評価一覧</h2>
 			<div class="evaluation col-xl-5">
-				<p>評価：<%= Evaluation.where(evaluation_partner: @user.id).count %>
-				   良い：<%= Evaluation.where(evaluation_partner: @user.id, evaluation: 0).count %>
-				   普通：<%= Evaluation.where(evaluation_partner: @user.id, evaluation: 1).count %>
-				   悪い：<%= Evaluation.where(evaluation_partner: @user.id, evaluation: 2).count %>
+				<p>評価：<%= @evaluation_count %>
+				   良い：<%= @good_count %>
+				   普通：<%= @medium_count %>
+				   悪い：<%= @bad_count %>
 				</p>
 			</div>
 

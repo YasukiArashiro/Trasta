@@ -6,6 +6,10 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		@evaluations = Evaluation.where(evaluation_partner: @user.id)
+		@evaluation_count = Evaluation.where(evaluation_partner: @user.id).count
+		@good_count = Evaluation.where(evaluation_partner: @user.id, evaluation: 0).count
+		@medium_count = Evaluation.where(evaluation_partner: @user.id, evaluation: 1).count
+		@bad_count = Evaluation.where(evaluation_partner: @user.id, evaluation: 2).count
 	end
 
 	def edit
