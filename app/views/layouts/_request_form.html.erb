@@ -1,0 +1,43 @@
+<%= form_for @request do |f| %>
+	<table class="table_create" align="center">
+		<tr>
+		  <th><label for="title">タイトル <span class="label label-danger">必須</span></label></th>
+    	  <th>　<%= f.text_field :request_title %></th>
+		</tr>
+	    <tr>
+		  <th><label for="tcg_name">TCG名 <span class="label label-danger">必須</span></label></th>
+    	  <th>　<%= f.collection_select :tcg_tag_id, TcgTag.all, :id, :tcg_name, include_blank: "選択して下さい" %></th>
+		</tr>
+		<tr>
+		  <th><label for="match_day">対戦日 <span class="label label-danger">必須</span></label></th>
+    	  <th>　<%= f.date_field :match_day %></th>
+		</tr>
+		<tr>
+		  <th><label for="meeting_time">待ち合わせ時刻 <span class="label label-danger">必須</span></label></th>
+    	  <th>　<%= f.time_field :meeting_time %></th>
+		</tr>
+		<tr>
+		  <th><label for="ending_time">対戦終了時間 <span class="label label-danger">必須</span></label></th>
+    	  <th>　<%= f.time_field :ending_time %></th>
+		</tr>
+		<tr>
+		  <th><label for="match_style">対戦スタイル <span class="label label-danger">必須</span></label></th>
+    	  <th>　<%= f.collection_select :match_style_id, MatchStyle.all, :id, :match_style, include_blank: "選択して下さい" %></th>
+	    </tr>
+	    <tr>
+		  <th><label for="prefecture">待ち合わせ場所 <span class="label label-danger">必須</span></label></th>
+    	  <th>　<%= f.select :prefecture, Request.prefectures.keys, {prompt: '選択してください'} %></th>
+		</tr>
+		<tr>
+		  <th><label for="meeting_place">詳細な待ち合わせ場所 <span class="label label-danger">必須</span></label></th>
+    	  <th>　<%= f.text_area :meeting_place %></th>
+		</tr>
+		<tr>
+		  <th><label for="request_comment">コメント</label></th>
+    	  <th>　<%= f.text_area :request_comment %></th>
+		</tr>
+	</table>
+	<div class="submit text-center">
+		<%= f.submit "マッチリクエストを投稿する", class:"btn btn-success btn-submit" %>
+	</div>
+<% end %>

@@ -2,27 +2,5 @@
 	<h1 class= index-title>新着マッチリクエスト</h1>
 	<br>
 	<p id="notice" style="color: green;"><%= notice %></p>
-	<div class="row row-index w-auto">
-		<% @requests.each do |request| %>
-			<%= link_to request_path(request) do %>
-				<br>
-				<div class="details col col-index text-center">
-					<b class="title_index"><%= request.request_title %></b>
-					<br>
-					<b class="user_name_index btn"><%= attachment_image_tag request.user, :profile_image, :fill, 100, 100, format:'jpeg', fallback: "no_image.jpg", size:'50x50' %>
-						<%= request.user.nickname %>
-					</b>
-					<br>
-					<b class="match_index btn"><%= request.tcg_tag.tcg_name %></b>
-					<b class="match_index btn"><%= request.match_style.match_style %></b>
-					<br>
-					<b class="match_index btn"><%= request.match_day %></b>
-					<b class="match_index btn"><%= request.meeting_time.strftime('%H:%M') %>〜<%= request.ending_time.strftime('%H:%M') %></b>
-					<br>
-					<b class="match_index btn"><%= request.prefecture %></b>
-					<p class="meeting_place_index btn text-wrap"><%= request.meeting_place %></p>
-				</div>
-			<% end %>
-		<% end %>
-	</div>
+	<%= render 'layouts/requests' %>
 </div>
