@@ -1,7 +1,7 @@
 class RequestsController < ApplicationController
 
 	before_action :user_signed_in, only:[:new]
-	before_action :ensure_correct_user, only:[:edit]
+	before_action :ensure_correct_user, only:[:edit, :update, :destroy]
 
 	def index
 		@requests = Request.where(request_status: 0).reverse_order.page(params[:page]).per(10)
@@ -117,7 +117,7 @@ class RequestsController < ApplicationController
 		if user_signed_in?
 			@request = Request.find(params[:id])
 			if current_user.id != @request.user_id
-				redirect_to root
+				redirect_to root_path
 			end
 		else
 			redirect_to new_user_session_path

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 	before_action :user_signed_in, only:[:withdrawal]
-	before_action :ensure_correct_user, only:[:edit]
+	before_action :ensure_correct_user, only:[:edit, :update]
 
 	def show
 		@user = User.find(params[:id])
