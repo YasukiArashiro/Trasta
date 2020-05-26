@@ -10,11 +10,11 @@
 				<%= form_for [@request, @evaluation] do |f| %>
 					<div class="evaluation">
 						<%= f.radio_button :evaluation, :良い %>
-		  				<%= f.label :evaluation, "良い　", {value: :良い, style: "display: inline-block;"} %>
+		  				<%= f.label :evaluation, "良い　" %>
 		  				<%= f.radio_button :evaluation, :普通 %>
-		  				<%= f.label :evaluation, "普通　", {value: :普通, style: "display: inline-block;"} %>
+		  				<%= f.label :evaluation, "普通　" %>
 		  				<%= f.radio_button :evaluation, :悪い %>
-		  				<%= f.label :evaluation, "悪い　", {value: :悪い, style: "display: inline-block;"} %>
+		  				<%= f.label :evaluation, "悪い　" %>
 	  				</div>
 	  				<div class="evaluation_comment">
 						<label for="evaluation_comment">評価のコメント</label>
