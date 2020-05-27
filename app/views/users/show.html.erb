@@ -3,9 +3,9 @@
 	<p id="notice" style="color: green;"><%= notice %></p> <!-- userのサクセスメッセージ -->
 	<div class="row row-user text-center">
 		<p class="image"><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:'150x150') %></p>
-		<p class="profile1"><%= @user.nickname %></p>
-		<p class="profile2"><%= @user.introduction %></p>
-		<p class="profile3">プレイスタイル：<%= @user.match_style.match_style %></p>
+		<p class="nickname"><%= @user.nickname %></p>
+		<p class="introduction"><%= @user.introduction %></p>
+		<p class="match_style">プレイスタイル：<%= @user.match_style.match_style %></p>
 		<h3>プレイしているTCG</h3>
 		<div class="genre">
 			<% if @user.tcg_genres.empty? %>
