@@ -43,6 +43,9 @@
 .container-show {
 	background-color: #ffcccc;
 	.row-show {
+		#notice {
+			color: green;
+		}
 		.opponent {
 			font-size: 20px;
 			margin-top: 30px;
@@ -85,6 +88,9 @@
 	background-color: #ff9999;
 	.row-create {
 		background-color: #ccffcc;
+		#notice {
+			color: green;
+		}
 		.table_create {
 			font-size: 15px;
 			text-align:center;

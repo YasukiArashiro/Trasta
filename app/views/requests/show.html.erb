@@ -2,7 +2,7 @@
 	<div class="row row-show">
 		<div class="request_title text-center">
 			<h1><%= @request.request_title %></h1>
-			<p id="notice" style="color: green;"><%= notice %></p> <!-- requestのサクセスメッセージ -->
+			<p id="notice"><%= notice %></p> <!-- requestのサクセスメッセージ -->
 		</div>
 		<div class="opponent text-center">
 			<%= link_to user_path(@request.user) do %>

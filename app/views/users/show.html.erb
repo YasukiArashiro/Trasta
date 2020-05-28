@@ -1,6 +1,6 @@
 <div class="container container-user">
 	<h1>プロフィール</h1>
-	<p id="notice" style="color: green;"><%= notice %></p> <!-- userのサクセスメッセージ -->
+	<p id="notice"><%= notice %></p> <!-- userのサクセスメッセージ -->
 	<div class="row row-user text-center">
 		<p class="image"><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size:'150x150') %></p>
 		<p class="nickname"><%= @user.nickname %></p>
