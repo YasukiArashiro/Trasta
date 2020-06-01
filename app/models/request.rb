@@ -10,10 +10,15 @@ class Request < ApplicationRecord
 	validates :match_style_id, presence: true
 	validates :meeting_time, presence: true
 	validates :ending_time, presence: true
+	validate :start_end_check
 	validates :prefecture, presence: true
 	validates :meeting_place, presence: true, length: { maximum: 55 }
 	validates :request_comment, length: { maximum: 50 }
 
+	def start_end_check
+		errors.add(:ending_time, "の時間を正しく入力してください") unless
+		self.meeting_time < self.ending_time
+	end
 
 	enum prefecture: {
 	    "都道府県":0,北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,茨城県:8,栃木県:9,群馬県:10,
