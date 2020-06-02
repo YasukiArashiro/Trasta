@@ -1,4 +1,9 @@
 <%= form_for @request do |f| %>
+	<% if @request.errors.any? %>
+		<% @request.errors.full_messages.each do |msg| %>
+			<li class="text-center"><%= msg %></li>
+		<% end %>
+	<% end %>
 	<table class="table_create" align="center">
 		<tr>
 		  <th><label for="title">タイトル <span class="label label-danger">必須</span></label></th>

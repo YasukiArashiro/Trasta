@@ -7,6 +7,7 @@ class Request < ApplicationRecord
 
 	validates :request_title, presence: true, length: { maximum: 25 }
 	validates :tcg_tag_id, presence: true
+	validates :match_day, presence: true
 	validates :match_style_id, presence: true
 	validates :meeting_time, presence: true
 	validates :ending_time, presence: true
@@ -16,8 +17,10 @@ class Request < ApplicationRecord
 	validates :request_comment, length: { maximum: 50 }
 
 	def start_end_check
-		errors.add(:ending_time, "の時間を正しく入力してください") unless
-		self.meeting_time < self.ending_time
+		unless meeting_time.nil? || ending_time.nil?
+			errors.add(:ending_time, "の時間を正しく入力してください") unless
+			self.meeting_time < self.ending_time
+		end
 	end
 
 	enum prefecture: {

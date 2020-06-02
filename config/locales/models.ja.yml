@@ -49,7 +49,9 @@ ja:
         request:
           user: 投稿ユーザー
           tcg_tag: 対戦するTCG
+          tcg_tag_id: TCG名
           match_style: マッチスタイル
+          match_style_id: 対戦スタイル
           opponent_user_id: 対戦相手ユーザー
           request_title: リクエストタイトル
           match_day: 対戦日
