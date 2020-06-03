@@ -88,3 +88,11 @@ ja:
           tcg_tag: TCG名
           created_at: 登録日
           updated_at: 更新日
+    errors:
+      models:
+        request:
+          attributes:
+            tcg_tag:
+              required: "が設定されていません。"
+            match_style:
+              required: "が設定されていません。"
