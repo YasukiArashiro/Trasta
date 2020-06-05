@@ -12,7 +12,7 @@
 		<% end %>
 	</div>
 
-	<%= render 'layouts/requests' %>
+	<%= render 'layouts/requests', requests: @requests %>
 
 	<div class="row page text-center">
 		<%= paginate @requests %>
