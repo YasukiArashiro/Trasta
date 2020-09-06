@@ -24,6 +24,22 @@ TCGをプレイしているユーザー<br>
 ### 主な利用シーン
 TCGをプレイしたいユーザーが、対戦相手がいない時でもプレイできる。
 
+## 開発環境・言語
+
+OS Linux(Ubuntu)<br>
+<br>
+言語 HTML,CSS,JavaScript,Ruby,SQL<br>
+<br>
+フレームワーク Ruby on Rails,Bootstrap<br>
+<br>
+Railsライブラリ (devise,refile,refile-mini_magick,rails-admin,cancancan,dotenv-rails,bootstrap-sass,jquery-rails,pry-byebug,kaminari)<br>
+<br>
+インフラ AWS(EC2,RDS,EIP)<br>
+<br>
+その他ツールなど<br>
+Vagrant,VirtualBox,Slack
+
+
 ## 設計書
 
 ### 機能一覧
