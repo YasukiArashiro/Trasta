@@ -36,7 +36,7 @@ __フレームワーク__<br>
 Ruby on Rails,Bootstrap<br>
 <br>
 __Railsライブラリ__<br>
-devise,refile,refile-mini_magick,rails-admin,cancancan,dotenv-rails,bootstrap-sass,jquery-rails,pry-byebug,kaminari<br>
+devise,refile,refile-mini_magick,rails-admin,cancancan,dotenv-rails,bootstrap-sass,jquery-rails,<br>pry-byebug,kaminari<br>
 <br>
 __インフラ__<br>
 AWS(EC2,RDS,EIP)<br>
