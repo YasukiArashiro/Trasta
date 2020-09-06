@@ -26,17 +26,22 @@ TCGをプレイしたいユーザーが、対戦相手がいない時でもプ�
 
 ## 開発環境・言語
 
-OS Linux(Ubuntu)<br>
+__OS__<br>
+Linux(Ubuntu)<br>
 <br>
-言語 HTML,CSS,JavaScript,Ruby,SQL<br>
+__言語__<br>
+HTML,CSS,JavaScript,Ruby,SQL<br>
 <br>
-フレームワーク Ruby on Rails,Bootstrap<br>
+__フレームワーク__<br>
+Ruby on Rails,Bootstrap<br>
 <br>
-Railsライブラリ (devise,refile,refile-mini_magick,rails-admin,cancancan,dotenv-rails,bootstrap-sass,jquery-rails,pry-byebug,kaminari)<br>
+__Railsライブラリ__<br>
+devise,refile,refile-mini_magick,rails-admin,cancancan,dotenv-rails,bootstrap-sass,jquery-rails,pry-byebug,kaminari<br>
 <br>
-インフラ AWS(EC2,RDS,EIP)<br>
+__インフラ__<br>
+AWS(EC2,RDS,EIP)<br>
 <br>
-その他ツールなど<br>
+__その他ツールなど__<br>
 Vagrant,VirtualBox,Slack
 
 
